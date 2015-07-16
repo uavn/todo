@@ -1,0 +1,66 @@
+<div class="todo-list">
+  <h1>Список дел:</h1>
+
+  <a class="new-task" href="#">Добавить задачу</a>
+  
+  <?php foreach ( $items as $item ): ?>
+    <div class="task">
+      <h2><?= $item->title ?></h2>
+    
+      <div class="fr">
+        <a href="#" data-id="<?= $item->id ?>" class="task-end">завершить</a>
+        &bull;
+        <a href="#"data-id="<?= $item->id ?>" class="task-edit">изменить</a>
+      </div>
+
+      <div class="task-desc"><?= nl2br($item->desc) ?></div>
+  
+      <?php $time = strtotime($item->deadline) ?>
+
+      <div class="task-bottom" data-h="<?= date('H', $time) ?>" data-i="<?= date('i', $time) ?>" data-d="<?= date('d', $time) ?>" data-m="<?= date('m', $time) ?>" data-y="<?= date('Y', $time) ?>">
+        Сделать до <?= date('H:i (d.m.Y)', $time) ?>.
+      </div>
+    </div>
+  <?php endforeach ?>
+
+
+  <form action="./task/new" class="new-task-form">
+    <input type="hidden" name="id" value="">
+
+    <h2 class="row">Новая задача</h2>
+
+    <div class="row">
+      <label for="title">Заголовок:</label><br/>
+      <input type="text" name="title" id="title" value="" placeholder="Destroy Humans">
+    </div>
+
+    <div class="row">
+      <label for="desc">Описание:</label><br/>
+      <textarea placeholder="Start zombie apocalypse" name="desc" id="desc"></textarea>
+    </div>
+
+    <div class="row">
+      <label>Дедлайн (Ч:М (Д.М.Г)):</label><br/>
+
+      <input type="text" name="h" value="<?= date('H') ?>" maxlength="2">:<input type="text" name="i" value="<?= date('i') ?>" maxlength="2">
+
+      (<select name="d">
+        <?php for ($i = 1; $i <= 31; $i++ ): ?>
+          <option value="<?= $i < 10 ? "0{$i}" : $i ?>" <?= ( "0{$i}" == date('d') )  ? 'selected="selected"' : '' ?> ><?= $i < 10 ? "0{$i}" : $i ?></option>
+        <?php endfor ?>
+      </select>.<select name="m">
+        <?php for ($i = 1; $i <= 12; $i++ ): ?>
+          <option value="<?= $i < 10 ? "0{$i}" : $i ?>" <?= ( "0{$i}" == date('m') )  ? 'selected="selected"' : '' ?> ><?= $i < 10 ? "0{$i}" : $i ?></option>
+        <?php endfor ?>
+      </select>.<select name="y">
+        <?php for ($i = date('Y'); $i >= 2000; $i-- ): ?>
+          <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor ?>
+      </select>)
+    </div>
+
+    <div class="_row">
+      <input type="submit" value="Добавить"> или <a href="#" class="cancel-task">отменить</a>
+    </div>
+  </form>
+</div>

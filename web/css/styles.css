@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FDF5E6;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+}
+
+h1 {
+  color: #CD853F;
+  font-family: 'Bad Script', cursive;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+h2 {
+  color: #CD853F;
+  font-weight: 100;
+  font-family: 'Bad Script', cursive;
+  font-size: 18px;
+  display: inline-block;
+}
+
+label {
+  color: #8b4513;
+  font-weight: 100;
+
+}
+
+.todo-list {
+  max-width: 900px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.task {
+  background-color: #F5DEB3;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+
+.task-desc {
+  margin-top: 5px;
+  color: #8b4513;
+  font-weight: 100;
+}
+
+.task-bottom {
+  border-top: 1px solid #D2B48C;
+  padding-top: 5px;
+  margin-top: 10px;
+  font-size: 80%;
+  color: #A0522D;
+}
+
+a {
+  color: #8b7355;
+  text-decoration: none;
+  border-bottom: 1px dotted #8b7355;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+a:hover {
+  border-color: transparent;
+}
+
+.new-task-form {
+  display: none;
+  background-color: #F5DEB3;
+  padding: 10px;
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
+  top: 20%;
+  box-shadow: 0 0 50px #8b6969;
+}
+
+.new-task-form input[type=text],
+.new-task-form textarea {
+  color: #8b7355;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 5px 0;
+  box-sizing: border-box;
+  background: none;
+  border-bottom: 1px solid #8b7355;
+}
+
+.new-task-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.new-task-form input[name=h], .new-task-form input[name=i] {
+  width: 25px;
+  text-align: center;
+  padding: 0;
+}
+
+
+.new-task-form select {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.new-task-form input[type=submit] {
+  background: none;
+  background-color: #458b74;
+  border: none;
+  padding: 5px;
+  color: #fff;
+}
+.new-task-form input[type=submit][disabled] {
+  background-color: #999;
+}
+
+.new-task-form input[type=submit]:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.new-task-form input[type=submit][disabled]:hover {
+  opacity: 1;
+  background-color: #999;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+::-webkit-input-placeholder {color:#cdaa7d;}
+::-moz-placeholder          {color:#cdaa7d;}/* Firefox 19+ */
+:-moz-placeholder           {color:#cdaa7d;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#cdaa7d;}
+
+.fr {
+  float: right;
+}
