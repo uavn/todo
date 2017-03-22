@@ -25,8 +25,15 @@ class Router {
   }
 
   private static function parseUrl() {
-    $internalUrl = str_replace(
-      dirname($_SERVER['SCRIPT_NAME']), '', substr($_SERVER['REQUEST_URI'], 0, (false !== strpos($_SERVER['REQUEST_URI'], '?')) ? $_SERVER['REQUEST_URI'] : strlen($_SERVER['REQUEST_URI']) )
+    $internalUrl = trim(
+      substr(
+        $_SERVER['REQUEST_URI'],
+        0,
+        (false !== strpos($_SERVER['REQUEST_URI'], '?'))
+          ? $_SERVER['REQUEST_URI']
+          : strlen($_SERVER['REQUEST_URI'])
+      ),
+      dirname($_SERVER['SCRIPT_NAME'])
     );
 
     $urlParams = [];
