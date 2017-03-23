@@ -30,7 +30,7 @@ class Router {
         $_SERVER['REQUEST_URI'],
         0,
         (false !== strpos($_SERVER['REQUEST_URI'], '?'))
-          ? $_SERVER['REQUEST_URI']
+          ? strpos($_SERVER['REQUEST_URI'], '?')
           : strlen($_SERVER['REQUEST_URI'])
       ),
       dirname($_SERVER['SCRIPT_NAME'])
